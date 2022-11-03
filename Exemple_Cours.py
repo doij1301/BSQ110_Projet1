@@ -14,3 +14,5 @@ final_state=u_circuit@init_state
 print('final_sate=bell state \n',final_state)
 probabilites=final_state*np.conjugate(final_state)
 print('probabilites \n',probabilites)
+
+#TEST
