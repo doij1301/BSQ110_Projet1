@@ -22,3 +22,6 @@ def execution_ibmq(circuit):
     job_monitor(job)
     counts = job.result().get_counts()
     print(counts)
+
+def decimal_in_bit_string(nb_decimal, nb_qbits):
+    return f"{nb_decimal:0{nb_qbits}b}"
