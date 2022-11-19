@@ -2,6 +2,7 @@ from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
 from qiskit import Aer, execute, transpile
 from qiskit.tools.visualization import plot_histogram, plot_state_city
 import qiskit.quantum_info as qi
+import numpy as np
 from qiskit import IBMQ
 from qiskit.tools import job_monitor
 from qiskit.providers.ibmq import least_busy
@@ -23,5 +24,6 @@ def execution_ibmq(circuit):
     counts = job.result().get_counts()
     print(counts)
 
-def decimal_in_bit_string(nb_decimal, nb_qbits):
+def decimal_in_bit_string(nb_decimal):
+    nb_qbits = np.math.ceil(np.math.log2(nb_decimal))
     return f"{nb_decimal:0{nb_qbits}b}"
