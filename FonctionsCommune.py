@@ -26,4 +26,4 @@ def execution_ibmq(circuit):
 
 def decimal_in_bit_string(nb_decimal):
     nb_qbits = np.math.ceil(np.math.log2(nb_decimal))
-    return f"{nb_decimal:0{nb_qbits}b}"
+    return f"{nb_decimal+1:0{nb_qbits}b}"
