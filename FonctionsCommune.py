@@ -1,7 +1,4 @@
-from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
-from qiskit import Aer, execute, transpile
-from qiskit.tools.visualization import plot_histogram, plot_state_city
-import qiskit.quantum_info as qi
+from qiskit import execute
 import numpy as np
 from qiskit import IBMQ
 from qiskit.tools import job_monitor
@@ -25,5 +22,7 @@ def execution_ibmq(circuit):
     print(counts)
 
 def decimal_in_bit_string(nb_decimal):
-    nb_qbits = np.math.ceil(np.math.log2(nb_decimal))
+    if nb_decimal == 0: nb_qbits = 1
+    else:
+        nb_qbits = np.math.ceil(np.math.log2(nb_decimal))
     return f"{nb_decimal+1:0{nb_qbits}b}"
